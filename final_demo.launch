@@ -1,0 +1,13 @@
+<launch>
+	
+	<!--including existing launch file-->
+	<!--include file="$(find turtlebot3_bringup)/launch/turtlebot3_robot.launch"/>-->
+	<!--include file="$(find turtlebot_navigation)/launch/turtlebot3_navigation.launch map_file:=/home/catkin_ws/src/gryffindor_final_demo/map.yaml-->
+
+
+	<!--creating python script based nodes-->
+	<rosparam command="load" file="$(find gryffindor_final_demo)/waypoints.yaml" />
+	<node pkg="gryffindor_final_demo" type="goToWaypoints.py" name="goToWaypoints" output="screen" args="$(arg my_args)"/>
+	
+    
+</launch>
